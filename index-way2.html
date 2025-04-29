@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>請使用瀏覽器開啟</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 2em;
+    }
+    button {
+      padding: 1em 2em;
+      font-size: 16px;
+      background-color: #0070f3;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>⚠️ 請使用系統瀏覽器開啟此頁面</h1>
+  <p>由於目前瀏覽器不支援 Google 登入功能，請點下方按鈕以系統瀏覽器重新開啟。</p>
+  <button onclick="openInBrowser()">用瀏覽器開啟</button>
+
+  <script>
+    function openInBrowser() {
+      const url = "https://wave.com.tw"; // <- 替換成你要跳轉的網址
+      window.location = url;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>重新導向中...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    function isInAppBrowser() {
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      return /Line|FBAV|Instagram/i.test(ua);
+    }
+
+    window.onload = function() {
+      const targetURL = "https://wave.com.tw"; // <- 替換成你的正式網址
+
+      if (isInAppBrowser()) {
+        // 嘗試使用 Intent（Android），或直接跳轉（iOS）
+        const userAgent = navigator.userAgent.toLowerCase();
+        if (userAgent.includes("android")) {
+          window.location = `intent://${targetURL.replace(/^https?:\/\//, '')}#Intent;scheme=https;package=com.android.chrome;end`;
+        } else {
+          // iOS 只能請用戶手動開啟（見中繼頁方案）
+          window.location = targetURL;
+        }
+      } else {
+        // 不是 in-app browser，正常進入
+        window.location = targetURL;
+      }
+    };
+  </script>
+</head>
+<body>
+  <p>正在導向中，請稍候...</p>
+</body>
+</html>
